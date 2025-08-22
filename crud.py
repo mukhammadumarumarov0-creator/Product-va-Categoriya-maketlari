@@ -4,21 +4,6 @@ from sqlalchemy import select
 from database import Category,Product
 
 
-
-# def create_coures(course_name:str):
-#     with Session(engine) as sessecion:
-#         course=Course(name=course_name)
-#         sessecion.add(course)
-#         sessecion.commit()
-#         sessecion.refresh(course)
-#         return course
-
-# def read_courses():
-#     with Session(engine) as sessecion:
-#         stmt=select(Course).options(joinedload(Course.students))
-#         courses=sessecion.scalars(stmt).unique().all()
-#         return courses
-
 def read_categories():
     with Session(engine) as sess:
         stmt=select(Category).options(joinedload(Category.products))
